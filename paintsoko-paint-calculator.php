@@ -3,7 +3,7 @@
  * Plugin Name: PaintSoko Paint Calculator
  * Plugin URI:  https://paintsoko.com
  * Description: A smart paint calculator for WooCommerce that helps customers estimate exactly how much Duracoat and Plascon paint they need.
- * Version:     3.0.1
+ * Version:     3.0.3
  * Author:      PaintSoko
  * Author URI:  https://paintsoko.com
  * License:     GPL v2 or later
@@ -521,13 +521,13 @@ final class PaintSoko_Paint_Calculator {
                                 </td>
                             </tr>
                             <tr>
-                                <th><label for="pspc_default_sides">Default No. of Sides</label></th>
+                                <th><label for="pspc_default_sides">Default No. of Walls</label></th>
                                 <td>
                                     <input type="number" id="pspc_default_sides"
                                            name="<?php echo esc_attr( PSPC_OPTIONS_KEY ); ?>[default_sides]"
                                            value="<?php echo esc_attr( $s['default_sides'] ); ?>"
                                            min="1" max="20" class="small-text">
-                                    <p class="description">Number of walls/sides (e.g. 4 for a full room, 1 for a single wall).</p>
+                                    <p class="description">Number of walls (e.g. 4 for a full room, 1 for a single wall).</p>
                                 </td>
                             </tr>
                         </table>
@@ -968,7 +968,7 @@ final class PaintSoko_Paint_Calculator {
                                 </td>
                             </tr>
                             <tr>
-                                <td class="pspc-input-label"><label for="pspc-sides">No. of Sides</label></td>
+                                <td class="pspc-input-label"><label for="pspc-sides">No. of Walls</label></td>
                                 <td class="pspc-input-field">
                                     <input type="number"
                                            id="pspc-sides"
@@ -1000,7 +1000,7 @@ final class PaintSoko_Paint_Calculator {
                         <table class="pspc-result-table">
                             <tbody>
                                 <tr>
-                                    <td class="pspc-rd-label">Dimensions (length, height, sides) :</td>
+                                    <td class="pspc-rd-label">Dimensions (length, height, walls) :</td>
                                     <td class="pspc-rd-value" id="pspc-rd-dimensions">—</td>
                                 </tr>
                                 <tr>
