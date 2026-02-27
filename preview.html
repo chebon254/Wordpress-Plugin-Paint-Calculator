@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaintSoko Paint Calculator — Preview</title>
+    <link rel="stylesheet" href="assets/css/calculator.css">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background: #f0f2f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        .page-label {
+            text-align: center;
+            color: #888;
+            font-size: .82rem;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<p class="page-label">Frontend Preview — as it appears on your page</p>
+
+<!-- This is what [paint_calculator] outputs -->
+<div class="pspc-calculator" id="pspc-calculator"
+     style="--pspc-primary:#c0392b;--pspc-btn-text:#ffffff;">
+
+    <!-- Header -->
+    <div class="pspc-header">
+        <div class="pspc-header-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
+                <path d="M20 14c-.092.064-2 2.083-2 3.5 0 1.494 1.044 2.5 2 2.5s2-1.006 2-2.5c0-1.417-1.908-3.436-2-3.5zM9.586 20l-1.415-1.414 8.392-8.393-1.413-1.414L6.758 17 4 14.243l6.171-6.172-1.413-1.413L2 13.414 7.758 19H9.586zm1.414 0L16 15l1 1-4 5H11zM15 3l-1 1 3 3 1-1-3-3zM4 6L3 7l3 3 1-1-3-3zm14 0l-5 5 1 1 5-5-1-1z"/>
+            </svg>
+        </div>
+        <div class="pspc-header-text">
+            <h2 class="pspc-title">Paint Calculator</h2>
+            <p class="pspc-subtitle">Find out exactly how much paint you need</p>
+        </div>
+    </div>
+
+    <div class="pspc-body">
+
+        <!-- Row 1 -->
+        <div class="pspc-row">
+            <div class="pspc-field">
+                <span class="pspc-field-label">Type of Project</span>
+                <div class="pspc-btn-group" id="pspc-project-type">
+                    <label class="pspc-opt">
+                        <input type="radio" name="pspc_project" value="fresh">
+                        <span class="pspc-opt-inner">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37-1.34-1.34c-.39-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.02 0-1.41z"/></svg>
+                            Fresh Painting
+                        </span>
+                    </label>
+                    <label class="pspc-opt pspc-opt--active">
+                        <input type="radio" name="pspc_project" value="repainting" checked>
+                        <span class="pspc-opt-inner">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"/></svg>
+                            Re-Painting
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pspc-field">
+                <span class="pspc-field-label">Select Space</span>
+                <div class="pspc-btn-group" id="pspc-space">
+                    <label class="pspc-opt pspc-opt--active">
+                        <input type="radio" name="pspc_space" value="interior" checked>
+                        <span class="pspc-opt-inner">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                            Interior
+                        </span>
+                    </label>
+                    <label class="pspc-opt">
+                        <input type="radio" name="pspc_space" value="exterior">
+                        <span class="pspc-opt-inner">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 3L2 12h3v9h6v-5h2v5h6v-9h3L12 3zm0 12.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                            Exterior
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="pspc-row">
+            <div class="pspc-field">
+                <span class="pspc-field-label">Size of Home</span>
+                <div class="pspc-btn-group" id="pspc-home-size">
+                    <label class="pspc-opt">
+                        <input type="radio" name="pspc_home_size" value="0.8">
+                        <span class="pspc-opt-inner">1BHK</span>
+                    </label>
+                    <label class="pspc-opt pspc-opt--active">
+                        <input type="radio" name="pspc_home_size" value="1.0" checked>
+                        <span class="pspc-opt-inner">2BHK</span>
+                    </label>
+                    <label class="pspc-opt">
+                        <input type="radio" name="pspc_home_size" value="1.2">
+                        <span class="pspc-opt-inner">3BHK+</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pspc-field">
+                <label class="pspc-field-label" for="pspc-area">Carpet Area</label>
+                <div class="pspc-input-wrap">
+                    <input type="number" id="pspc-area" class="pspc-area-input" value="3000" min="1" placeholder="Enter area">
+                    <span class="pspc-unit">sq ft</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculate Button -->
+        <div class="pspc-row pspc-row--center">
+            <button type="button" id="pspc-calc-btn" class="pspc-calc-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+                Calculate Now
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Results Panel -->
+    <div class="pspc-results" id="pspc-results" aria-live="polite" hidden>
+        <div class="pspc-results-inner">
+
+            <div class="pspc-result-hero">
+                <div class="pspc-result-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <div>
+                    <p class="pspc-result-msg" id="pspc-result-msg"></p>
+                    <p class="pspc-result-tins" id="pspc-result-tins"></p>
+                </div>
+            </div>
+
+            <div class="pspc-breakdown" id="pspc-breakdown">
+                <div class="pspc-bd-item">
+                    <span>Paintable Area</span>
+                    <strong id="pspc-bd-area">—</strong>
+                </div>
+                <div class="pspc-bd-item">
+                    <span>Coverage Rate</span>
+                    <strong id="pspc-bd-coverage">—</strong>
+                </div>
+                <div class="pspc-bd-item">
+                    <span>No. of Coats</span>
+                    <strong id="pspc-bd-coats">—</strong>
+                </div>
+                <div class="pspc-bd-item pspc-bd-item--total">
+                    <span>Total Required</span>
+                    <strong id="pspc-bd-total">—</strong>
+                </div>
+            </div>
+
+            <div class="pspc-shop-area" id="pspc-shop-area"></div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+window.pspcSettings = {
+    coverageRate: 16.5,
+    coatsFresh: 2,
+    coatsRepainting: 1,
+    factorInterior: 1.5,
+    factorExterior: 1.0,
+    roomOptions: [
+        { label: '1BHK', factor: 0.8 },
+        { label: '2BHK', factor: 1.0 },
+        { label: '3BHK+', factor: 1.2 }
+    ],
+    tinSizes: [20, 10, 4, 1],
+    showTinRecommendation: true,
+    areaUnit: 'sqft',
+    resultTemplate: '{litres} Litres of paint required',
+    wcEnabled: true,
+    wcShowBrands: true,
+    wcDuracoatUrl: 'https://paintsoko.com/product-category/duracoat',
+    wcPlascomUrl:  'https://paintsoko.com/product-category/plascom',
+    wcShopButtonText: 'Shop Paint Now'
+};
+</script>
+<script src="assets/js/calculator.js"></script>
+
+</body>
+</html>

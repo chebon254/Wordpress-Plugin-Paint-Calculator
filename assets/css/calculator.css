@@ -1,0 +1,439 @@
+/* ================================================================
+   PaintSoko Paint Calculator v2 — Frontend Styles
+   ================================================================ */
+
+/* ── CSS Variables ──────────────────────────────────────────────── */
+.pspc-calculator {
+    --pspc-primary:   #c0392b;
+    --pspc-btn-text:  #ffffff;
+    --pspc-accent:    #f0b429;       /* golden yellow — section headers */
+    --pspc-bg:        #ffffff;
+    --pspc-border:    #dde1e7;
+    --pspc-muted:     #f7f8fa;
+    --pspc-text:      #1c1c1e;
+    --pspc-text-soft: #6b7280;
+    --pspc-radius:    10px;
+    --pspc-trans:     all .18s ease;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--pspc-text);
+
+    background: var(--pspc-bg);
+    border: 1px solid var(--pspc-border);
+    border-radius: var(--pspc-radius);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, .09);
+    overflow: hidden;
+    max-width: 920px;
+    margin: 0 auto 2rem;
+}
+
+/* ── Title Bar ──────────────────────────────────────────────────── */
+.pspc-title-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 28px 20px;
+    background: linear-gradient(
+        135deg,
+        var(--pspc-primary) 0%,
+        color-mix(in srgb, var(--pspc-primary) 78%, #000) 100%
+    );
+    color: #fff;
+}
+
+.pspc-title-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, .18);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.pspc-title-icon svg {
+    fill: currentColor;
+}
+
+.pspc-title {
+    margin: 0 0 3px !important;
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -.2px;
+    color: inherit !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.pspc-subtitle {
+    margin: 0 !important;
+    font-size: .875rem;
+    opacity: .85;
+}
+
+/* ── Two-Column Layout ──────────────────────────────────────────── */
+.pspc-layout {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    min-height: 360px;
+}
+
+/* ── Form Panel (left) ──────────────────────────────────────────── */
+.pspc-form-panel {
+    padding: 24px 20px 24px 24px;
+    border-right: 1px solid var(--pspc-border);
+    background: var(--pspc-bg);
+}
+
+/* ── Input Table ────────────────────────────────────────────────── */
+.pspc-input-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pspc-input-label {
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--pspc-text-soft);
+    padding: 9px 10px 9px 10px;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 40%;
+}
+
+.pspc-input-label label {
+    cursor: default;
+    font: inherit;
+    color: inherit;
+}
+
+.pspc-input-field {
+    padding: 7px 0;
+    vertical-align: middle;
+}
+
+/* Select */
+.pspc-select {
+    width: 100%;
+    padding: 8px 30px 8px 10px;
+    border: 1.5px solid var(--pspc-border);
+    border-radius: 6px;
+    font-size: .875rem;
+    color: var(--pspc-text);
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b7280'/%3E%3C/svg%3E") no-repeat right 10px center;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    transition: var(--pspc-trans);
+}
+
+.pspc-select:focus {
+    outline: none;
+    border-color: var(--pspc-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--pspc-primary) 15%, transparent);
+}
+
+.pspc-select:disabled {
+    background-color: var(--pspc-muted);
+    color: #aaa;
+    cursor: not-allowed;
+    border-color: #e0e0e0;
+}
+
+/* Number input */
+.pspc-number-input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1.5px solid var(--pspc-border);
+    border-radius: 6px;
+    font-size: .875rem;
+    color: var(--pspc-text);
+    background: #fff;
+    transition: var(--pspc-trans);
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.pspc-number-input::-webkit-inner-spin-button,
+.pspc-number-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.pspc-number-input:focus {
+    outline: none;
+    border-color: var(--pspc-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--pspc-primary) 15%, transparent);
+}
+
+/* Submit row */
+.pspc-submit-cell {
+    padding-top: 18px;
+    text-align: center;
+}
+
+/* Submit button */
+.pspc-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 38px;
+    background: var(--pspc-primary);
+    color: var(--pspc-btn-text);
+    border: none;
+    border-radius: 6px;
+    font-size: .9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: var(--pspc-trans);
+    box-shadow: 0 3px 10px color-mix(in srgb, var(--pspc-primary) 40%, transparent);
+}
+
+.pspc-submit-btn:hover {
+    background: color-mix(in srgb, var(--pspc-primary) 84%, #000);
+    box-shadow: 0 5px 14px color-mix(in srgb, var(--pspc-primary) 50%, transparent);
+    transform: translateY(-1px);
+}
+
+.pspc-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Loading state */
+.pspc-submit-btn.is-loading {
+    opacity: .75;
+    cursor: wait;
+    pointer-events: none;
+}
+
+/* WC not active notice */
+.pspc-notice {
+    padding: 10px 0 14px;
+    font-size: .82rem;
+    color: var(--pspc-text-soft);
+}
+
+/* ── Results Panel (right) ──────────────────────────────────────── */
+.pspc-results-panel {
+    padding: 22px 24px 24px 20px;
+    background: var(--pspc-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Results heading */
+.pspc-results-heading {
+    margin: 0 0 6px !important;
+    font-size: .95rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 1.2px;
+    color: var(--pspc-text) !important;
+    text-transform: uppercase;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* Result block */
+.pspc-result-block {
+    border: 1px solid var(--pspc-border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Section header (golden yellow) */
+.pspc-section-hdr {
+    background: var(--pspc-accent);
+    color: #1c1c1e;
+    font-weight: 700;
+    font-size: .8rem;
+    letter-spacing: .4px;
+    padding: 7px 12px;
+}
+
+/* Results table */
+.pspc-result-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pspc-result-table tr {
+    border-bottom: 1px dotted var(--pspc-border);
+}
+
+.pspc-result-table tr:last-child {
+    border-bottom: none;
+}
+
+.pspc-result-table td {
+    padding: 8px 12px;
+    font-size: .82rem;
+    vertical-align: middle;
+}
+
+.pspc-rd-label {
+    color: var(--pspc-text-soft);
+    width: 58%;
+}
+
+.pspc-rd-value {
+    font-weight: 600;
+    color: var(--pspc-text);
+    text-align: right;
+}
+
+.pspc-rd-value a {
+    color: var(--pspc-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.pspc-rd-value a:hover {
+    text-decoration: underline;
+}
+
+/* Estimated cost row */
+.pspc-cost-row td {
+    background: var(--pspc-accent);
+    color: #1c1c1e;
+    font-weight: 700;
+    border-bottom: none;
+}
+
+.pspc-rd-cost {
+    font-size: .95rem !important;
+}
+
+/* ── Shop Buttons ───────────────────────────────────────────────── */
+.pspc-shop-area {
+    margin-top: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.pspc-shop-area[hidden] {
+    display: none !important;
+}
+
+.pspc-shop-heading {
+    width: 100%;
+    margin: 0 0 4px !important;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: var(--pspc-text-soft);
+}
+
+.pspc-btn-shop {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 22px;
+    border-radius: 6px;
+    font-size: .82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--pspc-trans);
+}
+
+.pspc-btn-shop svg {
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.pspc-btn-shop--primary {
+    background: var(--pspc-primary);
+    color: var(--pspc-btn-text);
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--pspc-primary) 35%, transparent);
+}
+
+.pspc-btn-shop--primary:hover {
+    background: color-mix(in srgb, var(--pspc-primary) 84%, #000);
+    color: var(--pspc-btn-text);
+    transform: translateY(-1px);
+}
+
+.pspc-btn-shop--outline {
+    background: transparent;
+    color: var(--pspc-primary);
+    border: 1.5px solid var(--pspc-primary);
+}
+
+.pspc-btn-shop--outline:hover {
+    background: var(--pspc-primary);
+    color: var(--pspc-btn-text);
+    transform: translateY(-1px);
+}
+
+/* ── Error ──────────────────────────────────────────────────────── */
+.pspc-error {
+    margin: 4px 0 0 !important;
+    padding: 8px 12px;
+    background: #fff0f0;
+    border: 1px solid #fca5a5;
+    border-radius: 5px;
+    color: #dc2626;
+    font-size: .82rem;
+}
+
+.pspc-error[hidden] {
+    display: none !important;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+    .pspc-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .pspc-form-panel {
+        border-right: none;
+        border-bottom: 1px solid var(--pspc-border);
+        padding: 20px;
+    }
+
+    .pspc-results-panel {
+        padding: 20px;
+    }
+
+    .pspc-title-bar {
+        padding: 18px 20px 16px;
+    }
+
+    .pspc-input-label {
+        width: 38%;
+    }
+}
+
+@media (max-width: 420px) {
+    .pspc-input-table {
+        display: block;
+    }
+
+    .pspc-input-table tbody,
+    .pspc-input-table tr,
+    .pspc-input-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .pspc-input-label {
+        padding-bottom: 3px;
+        width: 100%;
+    }
+
+    .pspc-input-field {
+        padding-bottom: 12px;
+    }
+
+    .pspc-rd-label {
+        width: 55%;
+    }
+}
