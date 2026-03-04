@@ -3,7 +3,7 @@
  * Plugin Name: PaintSoko Paint Calculator
  * Plugin URI:  https://paintsoko.com
  * Description: A smart paint calculator for WooCommerce that helps customers estimate exactly how much Duracoat and Plascon paint they need.
- * Version:     3.0.3
+ * Version:     3.0.4
  * Author:      PaintSoko
  * Author URI:  https://paintsoko.com
  * License:     GPL v2 or later
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'PSPC_VERSION',     '2.0.0' );
+define( 'PSPC_VERSION',     '3.0.4' );
 define( 'PSPC_PLUGIN_DIR',  plugin_dir_path( __FILE__ ) );
 define( 'PSPC_PLUGIN_URL',  plugin_dir_url( __FILE__ ) );
 define( 'PSPC_OPTIONS_KEY', 'pspc_settings' );
@@ -86,7 +86,7 @@ final class PaintSoko_Paint_Calculator {
     private function default_settings(): array {
         return [
             // ── Calculator
-            'coverage_rate'           => 13.0,  // sq m per litre (1 coat) — global fallback
+            'coverage_rate'           => 7.0,  // sq m per litre (1 coat) — global fallback
             'coats_fresh'             => 2,
             'coats_repainting'        => 1,
             // ── Default dimension inputs
