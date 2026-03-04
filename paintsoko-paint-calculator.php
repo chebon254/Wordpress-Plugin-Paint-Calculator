@@ -50,6 +50,7 @@ final class PaintSoko_Paint_Calculator {
     }
 
     private function __construct() {
+        $this->maybe_upgrade();
         $this->settings = $this->get_settings();
         $this->init_hooks();
     }
@@ -79,6 +80,17 @@ final class PaintSoko_Paint_Calculator {
     public function activate(): void {
         if ( false === get_option( PSPC_OPTIONS_KEY ) ) {
             update_option( PSPC_OPTIONS_KEY, $this->default_settings() );
+        }
+    }
+
+    /* ── Upgrade Routine ────────────────────────────────────────── */
+    private function maybe_upgrade(): void {
+        $settings = get_option( PSPC_OPTIONS_KEY, [] );
+        
+        // Migrate coverage_rate from 13 to 7 (version 3.0.4 change)
+        if ( isset( $settings['coverage_rate'] ) && (float) $settings['coverage_rate'] === 13.0 ) {
+            $settings['coverage_rate'] = 7.0;
+            update_option( PSPC_OPTIONS_KEY, $settings );
         }
     }
 
