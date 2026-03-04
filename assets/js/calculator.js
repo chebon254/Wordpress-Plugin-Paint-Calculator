@@ -160,7 +160,7 @@
         /* Spread rate: from selected product, fallback to global */
         const spreadRate = (state.selProduct && state.selProduct.spread > 0)
             ? state.selProduct.spread
-            : (cfg.coverageRate || 13);
+            : (cfg.coverageRate || 7);
 
         /* Surface area and litres */
         const surfaceArea  = length * height * sides;       /* sq m */
